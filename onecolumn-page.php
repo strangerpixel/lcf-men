@@ -15,7 +15,7 @@
 get_header(); ?>
 
 		<div id="container" class="one-column">
-			<div id="content" role="main">
+			<div id="content" role="main" <?php if (is_front_page()) : ?>class="home"<?php endif; ?>>
 
 			<?php
 			/* Run the loop to output the page.

@@ -17,15 +17,7 @@ get_header(); ?>
 		<div id="container" class="one-column">
 			<div id="content-artist-page" role="main">
 
-			<?php
-			/* Run the loop to output the page.
-			 * If you want to overload this in a child theme then include a file
-			 * called loop-page.php and that will be used instead.
-			 */
-			 get_template_part( 'loop', 'artist' );
-			?>
-            
-            
+				<?php get_template_part( 'loop', 'profile' ); ?>
 
 			</div><!-- #content -->
 		</div><!-- #container -->

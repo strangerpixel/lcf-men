@@ -523,3 +523,7 @@ function remove_editor_menu() {
 }
 
 add_action('_admin_menu', 'remove_editor_menu', 1);
+
+
+/* Remove Nivo Slider CSS */
+remove_action('wp_head', 'css_NivoSlider');

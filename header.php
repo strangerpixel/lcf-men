@@ -60,8 +60,29 @@ $detect = new Mobile_Detect();
 if ($detect->isMobile()) {
     // any mobile platform
 }else{ ?>
-    <link rel="stylesheet" media="all" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/bg.css">
+	  <link rel="stylesheet" media="all" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/css/flexi-background.css">
+		<?php if (is_page('Event')) { ?>
+			<style>
+			body { 
+				background-image:			url(<?php echo get_stylesheet_directory_uri(); ?>/images/bg02.jpg);
+			}
+			</style>
+		<?php } else if (is_page('Homepage')) { ?>
+			<style>
+			body { 
+				background-image:			url(<?php echo get_stylesheet_directory_uri(); ?>/images/event-bg01.jpg);
+			}
+			</style>	
+		<?php } else if (is_page('PRESS') || is_page('Menswear at LCF')){ ?>
+			<style>
+			body { 
+				background-image:			url(<?php echo get_stylesheet_directory_uri(); ?>/images/bg0<?php echo rand(1, 3);?>.jpg);
+			}
+			</style>
+		<?php } ?>
+
 <?php } ?>
+
 
 <script type="text/javascript">
 
@@ -238,7 +259,10 @@ function fUpDateImgs(n,t){
 
 
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-<?php
+
+<?php wp_enqueue_script( 'jquery' ); ?>
+
+<?php	
 	/* We add some JavaScript to pages with the comment form
 	 * to support sites with threaded comments (when in use).
 	 */
@@ -252,18 +276,35 @@ function fUpDateImgs(n,t){
 	 */
 	wp_head();
 ?>
+
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/lightbox.js"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33999372-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
 </head>
 
 <body onLoad="fUpDateImgs(1,1);" <?php body_class(); ?>>
 
-<div id="cadreT"></div>
+<!--<div id="cadreT"></div>
 <div id="cadreR"></div>
 <div id="cadreB"></div>
-<div id="cadreL"></div>
+<div id="cadreL"></div>-->
 
 
 
-<div id="bg" style="z-index:-1;">
+<!--<div id="bg" class="clearfix">
   <div>
 <table cellpadding="0" cellspacing="0"><tbody><tr><td>
 
@@ -275,7 +316,7 @@ function fUpDateImgs(n,t){
 
 </td></tr></tbody></table>
   </div>
-</div>
+</div>-->
 
 
 
@@ -342,20 +383,6 @@ function fUpDateImgs(n,t){
         <li><a href="<?php bloginfo('url');?>/event/">EVENT</a></li>
      <?php } ?>
      
-     
-     
-     <?php if(is_page('VIDEO')){ ?>
-       <li  class="current_page_item"><a href="<?php bloginfo('url');?>/video/">VIDEO</a></li>
-     <?php }else{ ?>
-       <li><a href="<?php bloginfo('url');?>/video/">VIDEO</a></li>
-     <?php } ?>
-     
-     <?php if(is_page('MA_N')){ ?>
-       <li  class="current_page_item"><a href="<?php bloginfo('url');?>/ma_n/">MA_N</a></li>
-     <?php }else{ ?>
-       <li><a href="<?php bloginfo('url');?>/ma_n/">MA_N</a></li>
-     <?php } ?>
-     
      <?php if(is_page('Menswear at LCF')){ ?>  
 	    <li  class="current_page_item"><a href="<?php bloginfo('url');?>/menswear-at-lcf/">MENSWEAR AT LCF</a></li>
      <?php }else{ ?> 
@@ -367,40 +394,7 @@ function fUpDateImgs(n,t){
       <?php }else{ ?>
         <li><a href="<?php bloginfo('url');?>/press/">PRESS</a></li>
       <?php } ?>
-      
-      
-      
-    <?php if(is_page('Asger Juel Larsen')){ ?>
-    	<li ><span style="border-width:0px; margin:3px"></span></li>
-		<li class="current_page_item"><a href="javascript:fShowDiv('content');">Information</a></li>
-        <li><span style="border-width:0px; margin:3px"></span></li>
-        <li><span style="border-width:0px; margin:3px"></span></li>
-        <li><span style="border-width:0px; margin:3px"></span></li>
-    <?php } ?>   
-    
-    <?php if(is_page('Domingo Rodriguez')){ ?>
-    	<li><span style="border-width:0px; margin:3px"></span></li>
-        <li><span style="border-width:0px; margin:3px"></span></li>
-		<li class="current_page_item"><a href="javascript:fShowDiv('content');">Information</a></li>
-        <li><span style="border-width:0px; margin:3px"></span></li>
-        <li><span style="border-width:0px; margin:3px"></span></li>
-    <?php } ?> 
-    
-    <?php if(is_page('Matteo Molinari')){ ?>
-    	<li><span style="border-width:0px; margin:3px"></span></li>
-        <li><span style="border-width:0px; margin:3px"></span></li>
-        <li><span style="border-width:0px; margin:3px"></span></li>
-		<li class="current_page_item"><a href="javascript:fShowDiv('content');">Information</a></li>
-        <li><span style="border-width:0px; margin:3px"></span></li>
-    <?php } ?>
-    
-    <?php if(is_page('Oliver Ruuger')){ ?>
-    	<li><span style="border-width:0px; margin:3px"></span></li>
-        <li><span style="border-width:0px; margin:3px"></span></li>
-        <li><span style="border-width:0px; margin:3px"></span></li>
-        <li><span style="border-width:0px; margin:3px"></span></li>
-		<li class="current_page_item"><a href="javascript:fShowDiv('content');">Information</a></li> 
-    <?php } ?> 
+     
    </ul>
 
 	<div id="main">

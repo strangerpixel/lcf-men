@@ -1,6 +1,6 @@
 <?php
 /**
- * The loop that displays a page.
+ * The loop that displays the Press page.
  *
  * The loop displays the posts and the post content.  See
  * http://codex.wordpress.org/The_Loop to understand it and
@@ -19,15 +19,7 @@
 
 				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					
-					<?php 
-					$embed_code = get_post_meta($post->ID, 'embed_code', true);
-					$embed_type = get_post_meta($post->ID, 'embed_type', true);
-					
-					if ($embed_code) : ?>
-					<div class="media-object add-bottom <?php echo $embed_type; ?>">
-						<?php echo $embed_code; ?> 
-					</div> <!-- .media-object -->
-					<?php endif; ?>
+					<?php if (function_exists('nivoslider4wp_show')) { nivoslider4wp_show(); } ?>
 					
 					<div class="entry-content">
 						<?php the_content(); ?>

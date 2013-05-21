@@ -12,8 +12,6 @@
 ?>
 	</div><!-- #main -->
 
-	
-
 </div><!-- #wrapper -->
 
 <?php
@@ -24,5 +22,7 @@
 
 	wp_footer();
 ?>
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/flexi-background-jquery.js"></script>
+
 </body>
 </html>
